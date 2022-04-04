@@ -1,5 +1,7 @@
 <?php
-    require './data/mock.php'
+    require './data/mock.php';
+    require './data/users.php';
+    require 'functions.php';
 ?>
 
 <section>
@@ -7,10 +9,10 @@
     <ul id="messages-list">
         <?php 
             foreach ( $messages as $value){
-                var_dump($value);
+            $id = $value['user'];
         ?>
         <li class="message">
-            <h3 title="Passions : animaux, réincarnation, teflon">Philibert</h3>
+            <h3 title="Passions : animaux, réincarnation, teflon"><?=get_user_by_id($value['user'], $users)?></h3>
             <p><?=$value['body']?></p>
             <h4 class="date"><?=$value['date']?></h4>
         </li>
